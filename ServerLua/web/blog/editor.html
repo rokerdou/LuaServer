@@ -1,0 +1,336 @@
+<!doctype html>
+<html class="no-js h-100" lang="en">
+  <head>
+    <!-- Google Tag Manager -->
+
+
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>异石后台管理</title>
+    <meta name="description" content="A premium collection of beautiful hand-crafted Bootstrap 4 admin dashboard templates and dozens of custom components built for data-driven applications.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="styles/shards-dashboards.1.1.0.min.css">
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+        <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">  
+<script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css" /> 
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/panel.css" />
+
+        <style>
+        #header{
+            width: 100%;
+            height: 40px;
+            background: #2e6da4;
+            line-height: 40px;
+            color: white;
+            font-size: 20px;
+            margin-bottom: 60px;
+        }
+        #md,#html{
+            height: 510px;
+        }
+        #md{
+            resize: none;
+        }
+        #html{
+            border: solid 1px darkgrey;
+            border-radius: 5px;
+        }
+        .pre-scrollable{
+            max-height: 510px;
+        }
+         
+    </style>
+  </head>
+  <body class="h-100">
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Main Sidebar -->
+        <aside id="main-sidebar" class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+
+        </aside>
+        <!-- End Main Sidebar -->
+        <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+          <div class="main-navbar sticky-top bg-white">
+            <!-- Main Navbar -->
+
+          </div>
+          <!-- / .main-navbar -->
+          <div class="main-content-container container-fluid px-4 mb-4">
+            <!-- Page Header -->
+
+            <!-- End Page Header -->
+            <!-- Transaction History Table -->
+        <div id="layout">
+
+            <header>
+                <h4>添加文章</h4>
+            </header>
+                                       <div id='alert' class="alert alert-danger alert-dismissible fade hide" role="alert">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                          <i id='alerttext' class="fa fa-exclamation-circle"></i>
+                        </div>
+<div class="row">
+                        <div class="col">
+                          <form>
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="feFirstName">作者</label>
+                                <input type="text" class="form-control" id="feName" placeholder="First Name" value="D先生"> </div>
+                              <div class="form-group col-md-6">
+                                <label for="feLastName">主题</label>
+                                <input type="text" class="form-control" id="feTitle" placeholder="Last Name" value="Brooks"> </div>
+                            </div>
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="feInputAddress">URL</label>
+                                <input type="text" class="form-control" id="feInputUrl" value="http://static.agoboy.com/" placeholder=""> 
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label for="feInputAddress">文件名</label>
+                                <input type="text" class="form-control" id="filename" placeholder=""> 
+                              </div>
+                             </div>
+
+                          </form>
+
+                          <div class="file-manager file-manager-cards">
+                            <div class="card card-small mb-3">
+                              <div class="row no-gutters border-bottom">
+                                <div id="dropz" class="file-manager-cards__dropzone w-100 p-2 dropzone dz-clickable">
+                                    <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
+                                </div>
+                              </div>
+                 <div id="jincheng" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                              <div class="row no-gutters p-2">
+                                <div class="col-lg-3 mb-2 mb-lg-0">
+                                  <form action="POST">
+                                    <div class="input-group input-group-seamless">
+                                      <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                          <i class="material-icons"></i>
+                                        </div>
+                                      </div>
+                                      <input type="text" class="form-control form-control-sm file-manager-cards__search" placeholder="Search files"> </div>
+                                  </form>
+                                </div>
+                                <div class="col">
+                                  <div class="d-flex ml-lg-auto my-auto">
+                                    <div class="btn-group btn-group-sm mr-2 ml-lg-auto" role="group" aria-label="Table row actions">
+                                      <button type="button" class="btn btn-white">
+                                        <i class="material-icons"></i>
+                                      </button>
+                                      <button type="button" class="btn btn-white">
+                                        <i class="material-icons"></i>
+                                      </button>
+                                      <button type="button" class="btn btn-white">
+                                        <i class="material-icons"></i>
+                                      </button>
+                                      <button type="button" class="btn btn-white">
+                                        <i class="material-icons"></i>
+                                      </button>
+                                    </div>
+                                    <button class="btn btn-sm btn-accent d-inline-block ml-auto ml-lg-0">
+                                      <i class="material-icons"></i> Add New </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+                                                  <div class="row">
+        <div class="col-sm-6 col-lg-6 col-md-6">
+            <textarea id="md" name="md" class="form-control"  placeholder="请输入Markdown代码"></textarea>
+        </div>
+        <div id="html" class="blog pre-scrollable col-lg-6 col-sm-6 col-md-6"></div>
+
+    </div>
+        <button type="submit" id="submit"class="btn btn-primary">添加文章</button>
+
+        </div>
+            <!-- End Transaction History Table -->
+          </div>
+          <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link" href="transaction-history.html#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="transaction-history.html#">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="transaction-history.html#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="transaction-history.html#">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="transaction-history.html#">Blog</a>
+              </li>
+            </ul>
+            <span class="copyright ml-auto my-auto mr-2">Copyright © 2018 D先生</span>
+          </footer>
+        </main>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+    <script src="scripts/app/app-transaction-history.1.1.0.min.js"></script>
+    <script src="https://cdn.bootcss.com/marked/0.4.0/marked.js"></script>
+    <script src="https://cdn.bootcss.com/crypto-js/3.1.9/crypto-js.js"></script>
+
+    <script src="https://unpkg.com/qiniu-js@2.5.1/dist/qiniu.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.2.0/min/dropzone.min.js"></script>
+        <script type="text/javascript" src="scripts/event.js"></script>
+
+        <script type="text/javascript">
+
+        function Select (text) {
+  hljs.initHighlightingOnLoad();
+
+// Create your custom renderer.
+const renderer = new marked.Renderer();
+renderer.code = (code, language) => {
+  // Check whether the given language is valid for highlight.js.
+  const validLang = !!(language && hljs.getLanguage(language));
+  // Highlight only if the language is valid.
+  const highlighted = validLang ? hljs.highlight(language, code).value : code;
+  // Render the highlighted code with `hljs` class.
+  return `<pre><code class="hljs ${language}" id="code">${highlighted}</code></pre>`;
+};
+renderer.heading = function (text, level) {
+        var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+        if(level==2)
+        {
+            return '<h' + level + ' class="text-center" >'+ text + '</h' + level + '>';
+        } 
+        else
+        return '<h' + level + ' >'+ text + '</h' + level + '>';
+    }
+renderer.image=function( href,  title,  text)
+{
+  if(title==null)
+  {   
+
+      return '<p><img src="'+href+'" class="full-img">'+'</p>'
+  }
+  else
+  {
+       return '<p><img src="'+href+'" class="full-img">'+title+'</p>'
+
+  
+  }
+
+}
+
+marked.setOptions({ renderer });
+
+
+
+              ( function ( $ ) {
+        $('#html').html(marked(text));
+
+          var highCode = hljs.highlightAuto($("code").html()).value;
+             $("code").html(highCode);
+
+    })( jQuery );
+  // body...
+}
+            function getHtml(filename)
+    {
+                      var htmlObj = jQuery.ajax({
+                //url: "<%=path %>/requestContent.txt",  //注意:这里路径要取全
+                url: filename,  //注意:这里路径要取全
+                async: false
+            })
+            ;
+            return htmlObj.responseText;
+    }
+        ( function ( $ ) {
+            "use strict";
+        var header=getHtml("backadmin-panel.html");
+            $("#md").on("keyup blur",function () {
+
+        Select($("#md").val());
+    })
+
+        $('#main-sidebar').html(header);
+        $('#submit').on('click', function(event) {
+          event.preventDefault(); 
+
+        var file = new File([$("#md").val()], $("#filename").val(), {
+            type: "text/plain",
+          });
+          uploadfile(file);
+
+          addArticle($("#feName").val().trim(),$("#feTitle").val().trim(),$("#feInputUrl").val().trim(),function(data){
+               $('#alert').attr("class","alert alert-success alert-dismissible fade show");
+                $("#alerttext").empty();
+                $("#alerttext").text("注册成功！");
+                
+            },
+            function(XMLHttpRequest, textStatus, errorThrown) {
+               $('#alert').attr("class","alert alert-danger alert-dismissible fade show");
+               $("#alerttext").empty();
+                $("#alerttext").text("注册失败！");
+                $('#username').attr("class","form-control is-invalid");
+                  $('#password').attr("class","form-control is-invalid");
+
+
+
+            } 
+            );
+        });
+    var dropz = new Dropzone("#dropz", {
+        url: "handle-upload.php",
+        maxFiles: 10,
+        addedfile: function(file) {
+        uploadfile(file);
+        $('#md').val($('#md').val()+"![](http://static.agoboy.com/"+file.name);
+
+        }
+
+    });    
+
+            
+
+                
+                /*
+                // or
+                testEditor = editormd({
+                    id      : "test-editormd",
+                    width   : "90%",
+                    height  : 640,
+                    path    : "../lib/"
+                });
+                */
+          
+     
+              
+
+
+        } )( jQuery );
+
+    </script>
+  </body>
+</html>

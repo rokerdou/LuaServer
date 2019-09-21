@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="js/jquery-2.1.4.min.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/shards.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+       <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body, .fullpage {
+            width: 100%;
+            height: 100%;
+        }
+        .fullpage {
+           
+
+            text-align: center;
+        }
+    </style>
+    <script src="js/shards.min.js"></script>
+
+  </head>
+  <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="header">
+
+</nav>
+
+<div class="fullpage d-flex align-items-center" style="background: #E9ECEF">
+    <div class="example   col-lg-4 col-md-6 ml-auto mr-auto">
+                           <div id='alert' class="alert alert-danger alert-dismissible fade hide" role="alert">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                          <i id='alerttext' class="fa fa-exclamation-circle"></i>
+                        </div>
+        <div class="card ">
+          <div class="card-body">
+                        <h3 class="text-info text-center">用户注册</h3>
+                        <div class="row">
+                          <div class="form-group col-md-4">
+                            <label for="form1-name"  class="col-form-label">用户名称</label>
+                          </div>
+                          <div class="form-group col-md-8">
+                            
+                            <input type="email" id="username" class="form-control" id="form1-email" placeholder="Email">
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="form-group col-md-4">
+                            <label for="form1-name"  class="col-form-label">注册密码</label>
+                          </div>
+                          <div class="form-group col-md-8">
+                            
+                          <input type="password" id="password" class="form-control" id="form1-password" placeholder="Password" required="">
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="form-group col-md-4">
+                            <label for="form1-name"  class="col-form-label">确认密码</label>
+                          </div>
+                          <div class="form-group col-md-8">
+                            
+                          <input type="password" id="passwords" class="form-control" id="form1-password" placeholder="Password" required="">
+                          </div>
+                      </div>
+                      <div class="row justify-content-center">
+
+
+                      <button type="button" id="register" href="reg.html" class="btn btn-success btn-sm offset-1">注册</button>
+
+                    </div>
+
+
+           
+                  
+           </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="js/event.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script>
+jQuery(document).ready(function($) {
+
+        "use strict";
+        var header=getHtml("header.html");
+
+        $('#header').html(header);
+
+         $('#register').on('click', function(event) {
+          event.preventDefault(); 
+          reg($("#username").val().trim(),$("#password").val().trim(),function(data){
+               $('#alert').attr("class","alert alert-success alert-dismissible fade show");
+                $("#alerttext").empty();
+                $("#alerttext").text("注册成功！");
+                
+            },
+            function(XMLHttpRequest, textStatus, errorThrown) {
+               $('#alert').attr("class","alert alert-danger alert-dismissible fade show");
+               $("#alerttext").empty();
+                $("#alerttext").text("注册失败！");
+                $('#username').attr("class","form-control is-invalid");
+                  $('#password').attr("class","form-control is-invalid");
+
+
+
+            } 
+            );
+         });
+
+        $('#submit').on('click', function(event) {
+           event.preventDefault(); 
+           login($("#lg_username").val().trim(),$("#lg_password").val().trim(),
+            function(data){
+                document.location.href = "/account/doga.html";
+            }   ,
+            function(XMLHttpRequest, textStatus, errorThrown) {
+
+                $('#lg_username').attr("class","form-control is-invalid");
+                  $('#lg_password').attr("class","form-control is-invalid");
+
+
+            }
+            );
+
+
+
+        });
+
+
+
+
+
+
+        // $('.user-area> a').on('click', function(event) {
+        //  event.preventDefault();
+        //  event.stopPropagation();
+        //  $('.user-menu').parent().removeClass('open');
+        //  $('.user-menu').parent().toggleClass('open');
+        // });
+
+
+    });
+</script>
+
+  </body>
+</html>

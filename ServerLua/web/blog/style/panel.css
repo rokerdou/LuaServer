@@ -1,0 +1,71 @@
+a { 
+
+text-decoration:none; /*CSS下划线效果：无下划线*/ 
+} 
+a:hover { 
+
+text-decoration:none; /*CSS下划线效果：无下划线*/ 
+color: #FFFFFF;
+
+
+} 
+img.full-img {
+    width: 80%;
+    max-width: none;
+    margin: 0 auto;
+    display: block;
+    height: auto;
+    text-indent: -9999px;
+}
+
+tbody tr{
+}
+tbody tr:hover td{
+	background-color: #3580F7;
+	text-color:#FFFFFF;
+}
+.blog p
+{
+	    font-size: 1.0rem;
+	    line-height: 2.4rem;
+	    margin-top: 2.2rem;
+	    color: #333;
+	    font-family:Exo,'-apple-system','Open Sans',HelveticaNeue-Light,'Helvetica Neue Light','Helvetica Neue','Hiragino Sans GB','Microsoft YaHei',Helvetica,Arial,sans-serif;
+
+}
+.blog h4,.blog h3,.blog h5,.blog h6
+{
+	position: relative;
+    margin-top: .5rem;
+    text-indent: 1.0em;
+    font-size: 1.3rem;
+
+}
+.blog h4:before,.blog h3:before,.blog h5:before,.blog h6:before
+{
+	position: absolute;
+    left: -1em;
+    display: block;
+    content: '#';
+    color: #f72d84
+}
+.dataTables_wrapper table.dataTable thead th{
+		text-align: left;
+	background-color: #fbfbfb;
+	border: 1px solid #e1e5eb;
+	font-weight: 400;
+	padding: 0
+}
+blockquote{
+	font-size: 1.6rem;
+    font-style: italic;
+    line-height: 2.2rem;
+    padding-left: 1rem;
+    color: #333;
+    border-left: 3px solid #efefef;
+        display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px
+}

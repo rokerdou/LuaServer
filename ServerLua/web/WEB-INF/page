@@ -1,0 +1,37 @@
+<#assign text>${data}</#assign>
+<#assign json=text?eval />
+
+<link type = "text/css" rel = "stylesheet" href = "../blog/style/simplePagination.css" />     
+
+<script src="../blog/script/jquery.simplePagination.js"></script>
+
+</div>
+<div class="container justify-content-center text-center">
+
+        <div id="pageDiv" class="container  justify-content-center text-center"></div>
+
+</div>
+<script type="text/javascript">  
+$(function() {  
+    var selector = "#pageDiv";  
+    $(selector).pagination({  
+        //items: 100,  
+        //itemsOnPage: 10,  
+        edges: 1,  
+        itemsOnPage:${base64(json.itemsOnPage)},
+        items:${base64(json.items)},
+        displayedPages: 3,  
+        hrefTextPrefix:'?page=',
+        listStyle:'mx-auto',
+        prevText: '<',  
+        cssStyle: 'doujia-theme',
+        currentPage:${base64(json.page)},
+    	nextText: '>',
+        onPageClick: changePage  
+    });  
+});  
+  
+function changePage(index){  
+    //alert(index);  
+}  
+</script>  

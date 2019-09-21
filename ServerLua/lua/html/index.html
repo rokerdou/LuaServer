@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="js/jquery-2.1.4.min.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/shards.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/shards.min.js"></script>
+  </head>
+  <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="header">
+    
+</nav>
+<div class="alert alert-success alert-dismissible fade show .lign-content-stretch  " role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>Yay!</strong>科学上网，自由无疆！
+</div>
+  <div class="row">
+
+           <img src="images/demo/shard-1-5x-4.png" alt="Shard" class="rounded mx-auto d-block shard">
+ 
+     
+
+  </div>
+    <div class="section-title col-lg-8 col-md-10 ml-auto mr-auto mb-5">
+              <p class="text-center">多条高速CN2线路直连大陆，按需选择，即刻加速无需等待！</p>
+  </div>
+  <div class="example col-lg-8 col-md-10 ml-auto mr-auto">
+    <div class="row">
+
+      <div class="col-sm-4">
+        <div class="card">
+          <img class="card-img-top" src="images/1.jpg" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-title text-center">试用</p>
+
+           <div class="container justify-content-center text-center">
+              <h3 class="text-primary">￥2</h4>
+                <label><strong>1G</strong>使用流量</label>
+                <label><strong>1天</strong>使用时间</label>
+               <label><strong>3条</strong>高速链路</label>
+              <hr></hr>
+              <label>不限制终端数量</label>
+              <label>UDP/SSR 支持</label>
+               <label>Win/Mac/Android/iOS</label>
+                <button type="button" class="btn btn-outline-primary">购买</button>
+            </div>
+
+          
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img class="card-img-top" src="images/1.jpg" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-title text-center">试用</p>
+
+           <div class="container justify-content-center  text-center">
+              <h3 class="text-primary">￥2</h4>
+                <label><strong>1G</strong>使用流量</label>
+                <label><strong>1天</strong>使用时间</label>
+               <label><strong>3条</strong>高速链路</label>
+              <hr></hr>
+              <label>不限制终端数量</label>
+              <label>UDP/SSR 支持</label>
+               <label>Win/Mac/Android/iOS</label>
+              <button type="button" class="btn btn-outline-info">购买</button>
+            </div>
+
+           
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img class="card-img-top" src="images/1.jpg" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-title text-center">试用</p>
+
+           <div class="container justify-content-center text-center">
+              <h3 class="text-primary">￥2</h4>
+                <label><strong>1G</strong>使用流量</label>
+                <label><strong>1天</strong>使用时间</label>
+               <label><strong>3条</strong>高速链路</label>
+              <hr></hr>
+              <label>不限制终端数量</label>
+              <label>UDP/SSR 支持</label>
+               <label>Win/Mac/Android/iOS</label>
+              <button type="button" class="btn btn-outline-success">购买</button>
+            </div>
+
+           
+          </div>
+        </div>
+      </div>
+    </div>
+<hr></hr>
+<h2 class="text-center">为什么选择异石？</h2>
+<p class="text-center">我们有足够多的理由让您相信异石的服务值得信赖</p>
+<section class="space" >
+  <div class="container">
+    <div class="row">
+      
+
+      <img src="images/img.png" alt="Shard" class="img-fluid" alt="Responsive image">
+    </div>
+  </div>
+</section>
+</div>
+  <script src="js/event.js"></script>
+<script>
+jQuery(document).ready(function($) {
+
+        "use strict";
+        
+        var header=getHtml("header.html");
+
+        $('#header').html(header);
+
+        $('#submit').on('click', function(event) {
+           event.preventDefault(); 
+           login($("#lg_username").val().trim(),$("#lg_password").val().trim(),
+            function(data){
+                document.location.href = "/account/doga.html";
+            }   ,
+            function(XMLHttpRequest, textStatus, errorThrown) {
+
+                $('#lg_username').attr("class","form-control is-invalid");
+                  $('#lg_password').attr("class","form-control is-invalid");
+
+
+            }
+            );
+
+
+
+        });
+
+       
+            $('#register').on('click', function(event) {
+
+
+             document.location.href = "reg.html";
+         
+        });
+
+        // $('.user-area> a').on('click', function(event) {
+        //  event.preventDefault();
+        //  event.stopPropagation();
+        //  $('.user-menu').parent().removeClass('open');
+        //  $('.user-menu').parent().toggleClass('open');
+        // });
+
+
+    });
+</script>
+
+  </body>
+</html>

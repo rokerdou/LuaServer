@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="js/jquery-2.1.4.min.js"></script>
+
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/shards.min.css">
+
+
+<link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">  
+<script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/shards.min.js"></script>
+    <script src="js/marked.js"></script>
+  </head>
+  <body style="height:100%">
+    <div class=" page-content align-items-stretch " style="height:100%">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="header">
+
+</nav>
+<div class="alert alert-success alert-dismissible fade show .lign-content-stretch  " role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <strong>Yay!</strong>科学上网，自由无疆！
+</div>
+  <div class="row d-flex justify-content-center  " style="margin-top:1rem;margin-bottom:1rem">
+            <div class="card justify-content-center" >
+          <div class="card-body">
+
+ <div class="container justify-content-center "  id="article">
+</div>
+</div>
+
+  </div>
+     
+
+  </div>
+
+  <footer class="main-footer bg-dark" style="bottom:0">
+      <div class="container bg-dark ">
+        <div class="py-5">
+          <div class="text-center">
+            <h1>🛠</h1>
+            <h2 class="text-white">Build Something!</h2>
+            <p class="text-muted col-lg-8 col-md-10 ml-auto mr-auto">What are you waiting for?
+              <b>
+                <u>Go ahead and build something!
+                </u>
+              </b> Can't wait to see what you come up with! If you like Shards, make sure you share it with your friends too!</p>
+          </div>
+
+          <div class="share d-table ml-auto mr-auto mt-5">
+            <a href="https://twitter.com/intent/tweet?url=https://designrevision.com/download/shards&amp;text=I%27m+in+love+with+Shards%2C+a+free+Bootstrap+4+UI+kit+by+%40DesignRevision+%23ui+%23design+%23free+%23bootstrap" class="btn btn-pill btn-primary mr-4" title="Share Shards on Twitter">
+              <i class="fa fa-twitter mr-1"></i> Share on Twitter</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://designrevision.com/download/shards" class="btn btn-pill btn-primary mr-4" title="Share on Facebook">
+              <i class="fa fa-facebook mr-1"></i> Share on Facebook</a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;title=Shards+%E2%80%94+A+free+and+modern+Bootstrap+4+UI+kit&amp;url=https://designrevision.com/download/shards" class="btn btn-pill btn-primary mr-4" title="Share on LinkedIn">
+              <i class="fa fa-linkedin mr-1"></i> Share on LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    </div>
+  <script src="js/event.js"></script>
+  <link href="https://cdn.bootcss.com/prettify/r298/prettify.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/prettify/r298/run_prettify.js"></script>
+
+<script>
+
+jQuery(document).ready(function($) {
+
+        "use strict";
+        var header=getHtml("header.html");
+
+        $('#header').html(header);
+
+
+
+hljs.initHighlightingOnLoad();
+
+// Create your custom renderer.
+const renderer = new marked.Renderer();
+renderer.code = (code, language) => {
+  // Check whether the given language is valid for highlight.js.
+  const validLang = !!(language && hljs.getLanguage(language));
+  // Highlight only if the language is valid.
+  const highlighted = validLang ? hljs.highlight(language, code).value : code;
+  // Render the highlighted code with `hljs` class.
+  return `<pre><code class="hljs ${language}">${highlighted}</code></pre>`;
+};
+renderer.heading = function (text, level) {
+        var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+        return '<h' + level + ' class="text-center">'+ text + '</h' + level + '>';
+    }
+
+marked.setOptions({ renderer });
+
+        
+      var htmlObj = jQuery.ajax({
+                //url: "<%=path %>/requestContent.txt",  //注意:这里路径要取全
+                url: "20156.txt",  //注意:这里路径要取全
+                async: false
+            })
+            ;
+
+             $('#article').html(marked(htmlObj.responseText));
+             // marktohtml(htmlObj.responseText, "article");
+
+
+        // $('.user-area> a').on('click', function(event) {
+        //  event.preventDefault();
+        //  event.stopPropagation();
+        //  $('.user-menu').parent().removeClass('open');
+        //  $('.user-menu').parent().toggleClass('open');
+        // });
+  
+function centerModals() { 
+  $('.modal').each(function(i) { 
+    var $clone = $(this).clone().css('display', 'block').appendTo('body'); 
+    var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2); 
+    top = top > 50 ? top : 0; 
+    $clone.remove(); 
+    $(this).find('.modal-content').css("margin-top", top - 50); 
+  }); 
+} 
+// 在模态框出现的时候调用垂直居中方法 
+$('.modal').on('show.bs.modal', centerModals); 
+// 在窗口大小改变的时候调用垂直居中方法 
+$(window).on('resize', centerModals);
+    });
+</script>
+  </body>
+</html>

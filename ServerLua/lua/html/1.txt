@@ -1,0 +1,45 @@
+## 2015半年记
+
+### 工作
+doujiadjkdfsdsldfjdlfsljdfjl
+
+sdfjksdfllksdfdfkls
+>这是引用的内容
+>>这是引用的内容
+>>>>>>>>>>这是引用的内容
+[简书](http://jianshu.com)
+[百度](http://baidu.com)
+- 列表内容
++ 列表内容
+* 列表内容
+表头|表头|表头
+---|:--:|---:
+内容|内容|内容
+内容|内容|内容
+
+```
+var markdownFromText = function ($data, $desc) {
+
+    // Generate Markdown
+    var html = marked($data);
+    document.getElementById($desc).innerHTML = html;
+
+    // Prettify
+    var codeEls = document.getElementsByTagName('code');
+    for (var i = 0, ii = codeEls.length; i < ii; i++) {
+        var codeEl = codeEls[i];
+        var lang = codeEl.className;
+        codeEl.className = 'prettyprint lang-' + lang;
+    }
+    prettyPrint();
+
+    // Style tables
+    var tableEls = document.getElementsByTagName('table');
+    for (var i = 0, ii = tableEls.length; i < ii; i++) {
+        var tableEl = tableEls[i];
+        tableEl.className = 'table table-striped table-bordered';
+    }
+};
+           ```
+
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script data-isso="http://www.agoboy.com:8081/isso/"
+        data-isso-css="true"
+        data-isso-lang="en"
+        data-isso-reply-to-self="false"
+        data-isso-require-author="false"
+        data-isso-require-email="false"
+        data-isso-max-comments-top="10"
+        data-isso-max-comments-nested="5"
+        data-isso-reveal-on-click="5"
+        data-isso-avatar="true"
+        data-isso-avatar-bg="#f0f0f0"
+        data-isso-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..."
+        data-isso-vote="true"
+        data-vote-levels=""
+        src="http://www.agoboy.com:8081/isso/js/embed.js"></script>
+    <script src="scripts/marked.min.js"></script>
+    <style>
+        #header{
+            width: 100%;
+            height: 40px;
+            background: #2e6da4;
+            line-height: 40px;
+            color: white;
+            font-size: 20px;
+            margin-bottom: 60px;
+        }
+        #md,#html{
+            height: 510px;
+        }
+        #md{
+            resize: none;
+        }
+        #html{
+            border: solid 1px darkgrey;
+            border-radius: 5px;
+        }
+        .pre-scrollable{
+            max-height: 510px;
+        }
+         
+    </style>
+</head>
+<body>
+<div id="header" class="text-center">MarkDown解析器</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-lg-6 col-md-6">
+            <textarea id="md" class="form-control"  placeholder="请输入Markdown代码"></textarea>
+        </div>
+        <div id="html" class="pre-scrollable col-lg-6 col-sm-6 col-md-6"></div>
+    </div>
+</div>
+</body>
+<script>
+    $("#md").on("keyup blur",function () {
+        $('#html').html(marked($("#md").val()))
+    })
+</script>
+ 
+</html>

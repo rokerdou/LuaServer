@@ -1,0 +1,217 @@
+<!doctype html>
+<html class="no-js h-100" lang="en">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      dataLayer = [
+      {
+        'ga-tracking-id': 'UA-115105611-1'
+      }];
+    </script>
+    <script>
+      (function(w, d, s, l, i)
+      {
+        w[l] = w[l] || [];
+        w[l].push(
+        {
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-WGLBNC8');
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>D先生博客</title>
+    <meta name="description" content="A premium collection of beautiful hand-crafted Bootstrap 4 admin dashboard templates and dozens of custom components built for data-driven applications.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="styles/shards-dashboards.1.1.0.min.css">
+    <link rel="stylesheet" href="styles/extras.1.1.0.min.css">
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">  
+<script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+     <script src="scripts/marked.js"></script>
+    <link rel="stylesheet" href="styles/table.css" /> </head>
+  <body class="h-100">
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Main Sidebar -->
+        <aside id="main-sidebar" class="main-sidebar col-12 col-md-6 col-lg-4 px-0">
+
+        </aside>
+        <!-- End Main Sidebar -->
+        <main class="main-content col-lg-8 col-md-6 col-sm-12 p-0 offset-lg-4 offset-md-6">
+          <div class="main-navbar sticky-top bg-white">
+            <!-- Main Navbar -->
+
+          </div>
+          <!-- / .main-navbar -->
+          <div class="main-content-container container-fluid px-4 mb-4">
+            <!-- Page Header -->
+            <p></p>
+            <!-- End Page Header -->
+            <!-- Transaction History Table -->
+            <div class="card " >
+              <div class="container justify-content-center " id="article">
+              </div>
+
+            </div>
+            <!-- End Transaction History Table -->
+          </div>
+
+        </main>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
+    <script src="scripts/extras.1.1.0.min.js"></script>
+    <script src="scripts/shards-dashboards.1.1.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+    <script src="scripts/app/app-transaction-history.1.1.0.min.js"></script>
+        <script>
+            function getHtml(filename)
+    {
+
+
+                      var htmlObj = jQuery.ajax({
+                //url: "<%=path %>/requestContent.txt",  //注意:这里路径要取全
+                url: filename,  //注意:这里路径要取全
+                async: false
+            })
+            ;
+            return htmlObj.responseText;
+    }
+
+        function getRequest() {
+          var url = window.location.search; //获取url中"?"符后的字串
+          var theRequest = new Object();
+          if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for(var i = 0; i < strs.length; i ++) {
+               
+              theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+               
+            }
+          }
+          return theRequest;
+        }
+        var id= getRequest().id;
+        if (id == undefined)
+        {
+          id=1;
+        }
+        ( function ( $ ) {
+            "use strict";
+        var header=getHtml("panel.html");
+
+        $('#main-sidebar').html(header);
+       var tables= $("#account-table").dataTable({
+
+        "searching": false,
+        "info":false,
+
+        "destroy" : true,       //销毁表格对象
+        "aLengthMenu":[5,10,20],  //用户可自选每页展示数量 5条或10条
+        "lengthChange":false,
+        "paging": true,//开启表格分页
+        "bProcessing" : true,
+        "bServerSide" : true,
+        "bAutoWidth" : false,
+//                  "sort" : "position",
+        "deferRender":true,//延迟渲染
+//                  "bStateSave" : false, //在第三页刷新页面，会自动到第一页
+//         "retrieve" : true,       //类似单例模式，重复利用以存在对象。
+        "iDisplayLength" : 10,
+        "iDisplayStart" : 0,
+
+        "ordering": false,//全局禁用排序
+        "ajax": {  //ajax方式向后台发送请求
+            "type": "post",
+            "url":"../apis/getAllUser",
+            "dataType" : "json",
+            "contentType": "application/json",
+            "data": function ( d ) {
+              d.event="getAllUser";
+              return JSON.stringify( d );
+            }
+        },
+        "columns" : [//对接收到的json格式数据进行处理，data为json中对应的key
+            {"data":"id"},
+
+
+
+        ],
+        //渲染
+         "columnDefs": [
+             {
+                 "render": function ( data, type, row ) {
+                     data='<a  class=" w-100 mr-0 text-black nav-item align-self-*-stretch" href="?id='+data+'"><div class="row " href="index.html"><div class=" container col-6 text-center" href="index.html"><span class="font-italic">2018-01-22</span></div><div class="container col-6 text-center"><span id="'+data+'">作者：D先生</span></div><div class="col-12 text-center text-dark"><h6 class="font-weight-bold d-table d-md-inline ml-1" href="index.html">2015年工作半年记昨天正在吃饭的时候</h6></div></div></a>'
+                     return data ;
+                 },
+                 "targets": 0 //指定渲染列：第一列(渲染第一列为单选框，data自动匹配为  {"data":"id"}中数据）
+             },
+
+         ],
+        "oLanguage" : { // 国际化配置
+            "sProcessing" : "正在获取数据，请稍后...",
+            "sLengthMenu" : "显示 _MENU_ 条",
+            "sZeroRecords" : "没有找到数据",
+            "sInfo" : "",
+            "sInfoEmpty" : "记录数为0",
+            "sInfoFiltered" : "(全部记录数 _MAX_ 条)",
+            "sInfoPostFix" : "",
+            "sSearch" : "查询",
+            "sUrl" : "",
+
+        },
+//                  initComplete:initComplete,
+    });
+hljs.initHighlightingOnLoad();
+
+// Create your custom renderer.
+const renderer = new marked.Renderer();
+renderer.code = (code, language) => {
+  // Check whether the given language is valid for highlight.js.
+  const validLang = !!(language && hljs.getLanguage(language));
+  // Highlight only if the language is valid.
+  const highlighted = validLang ? hljs.highlight(language, code).value : code;
+  // Render the highlighted code with `hljs` class.
+  return `<pre><code class="hljs ${language}">${highlighted}</code></pre>`;
+};
+renderer.heading = function (text, level) {
+        var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+        return '<h' + level + ' class="text-center">'+ text + '</h' + level + '>';
+    }
+
+marked.setOptions({ renderer });
+
+          var htmlObj = jQuery.ajax({
+                //url: "<%=path %>/requestContent.txt",  //注意:这里路径要取全
+                url: "../"+id+".txt",  //注意:这里路径要取全
+                async: false
+            })
+            ;
+
+             $('#article').html(marked(htmlObj.responseText));  
+
+
+        } )( jQuery );
+    </script>
+  </body>
+</html>
